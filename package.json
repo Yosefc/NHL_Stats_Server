@@ -4,7 +4,8 @@
   "description": "GraphQL server to get NHL stats",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "Yosef Connors",
   "license": "MIT",
