@@ -9,31 +9,25 @@ const {
 
 const TeamsType = new GraphQLObjectType({
   name: "Teams",
+  description: "Retuns a complete list of NHL teams.",
   fields: () => ({
-    id: { type: GraphQLInt },
-    name: { type: GraphQLString }
+    id: { type: GraphQLInt, description: "The team id." },
+    name: { type: GraphQLString, description: "The team name." }
   })
 });
 
 const GameTeamsType = new GraphQLObjectType({
   name: "GameTeams",
+  description: "Returns an object with the details of the home team and away team.",
   fields: () => ({
-    away: { type: GamesAwayType },
-    home: { type: GamesHomeType }
+    away: { type: TeamInfo },
+    home: { type: TeamInfo }
   })
 });
 
-const GamesAwayType = new GraphQLObjectType({
-  name: "GamesAway",
-  fields: () => ({
-    leagueRecord: { type: LeagueRecordType },
-    score: { type: GraphQLString },
-    team: { type: TeamsType }
-  })
-});
-
-const GamesHomeType = new GraphQLObjectType({
-  name: "GamesHome",
+const TeamInfo = new GraphQLObjectType({
+  name: "TeamInfo",
+  description: "Lists the objects in the GameTeamsType.",
   fields: () => ({
     leagueRecord: { type: LeagueRecordType },
     score: { type: GraphQLString },
@@ -58,6 +52,7 @@ const GameContentType = new GraphQLObjectType({
 
 const GameRecap = new GraphQLObjectType({
   name: "GameRecap",
+  description: "This query returns links to game recaps.",
   fields: () => ({
     href: { type: GraphQLString },
     type: {
@@ -147,6 +142,7 @@ const RootQuery = new GraphQLObjectType({
     },
     games: {
       type: new GraphQLList(GamesType),
+      description: "Gets all games played by team specified by the id arg.",
       args: {
         id: { type: GraphQLInt }
       },
@@ -187,6 +183,8 @@ const RootQuery = new GraphQLObjectType({
     },
     TodaysSchedule: {
       type: new GraphQLList(GamesType),
+      description:
+        "A query to ask for the last game from the current day. The query expects an id (int) corresponding to a teams id. You can view all of the teams ids by running the teams query.",
       args: {
         id: { type: GraphQLInt }
       },
@@ -215,7 +213,8 @@ const RootQuery = new GraphQLObjectType({
     },
     GetVideo: {
       type: GameRecap,
-      aGameRecap: {
+      description: "This query takes a field gmameId (int) to get the game recap.",
+      args: {
         gameId: { type: GraphQLInt }
       },
       async resolve(parent, { gameId }) {
