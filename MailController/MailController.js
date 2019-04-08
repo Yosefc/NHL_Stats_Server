@@ -61,7 +61,7 @@ module.exports = {
       transporter.close();
     });
   },
-  sendImAlive: function(emailData) {
+  sendImAlive: function() {
     const data = emailData[0];
     let transporter = mailGremlin.createTransport({
       host: "smtp.gmail.com",
