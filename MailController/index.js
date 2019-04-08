@@ -55,6 +55,7 @@ cron.schedule("30 * * * *", async () => {
   });
 });
 
-cron.schedule("30 9 * * 0,3", () => {
+cron.schedule("* * * * *", () => {
+  //30 9 * * 0,3
   sendImAlive();
 });
