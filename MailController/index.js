@@ -58,3 +58,16 @@ cron.schedule("30 * * * *", async () => {
 cron.schedule("30 9 * * 0,3", () => {
   sendImAlive();
 });
+
+cron.schedule("* * * * *", () => {
+  graphql(
+    schema,
+    `
+      {
+        team(id: 9) {
+          name
+        }
+      }
+    `
+  ).then(res => console.log(res.data));
+});

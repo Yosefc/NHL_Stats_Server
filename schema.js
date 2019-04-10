@@ -132,7 +132,7 @@ const RootQuery = new GraphQLObjectType({
     team: {
       type: new GraphQLList(TeamsType),
       args: {
-        id: { type: GraphQLString }
+        id: { type: GraphQLInt }
       },
       resolve(parent, args) {
         return axios
