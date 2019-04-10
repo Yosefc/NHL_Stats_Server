@@ -3,6 +3,7 @@ const { graphql } = require("graphql");
 const schema = require("../schema");
 const { sendGameUpdate, sendImAlive } = require("./MailController");
 let sentDate = null;
+const http = require("http");
 
 cron.schedule("30 * * * *", async () => {
   await graphql(
@@ -59,15 +60,6 @@ cron.schedule("30 9 * * 0,3", () => {
   sendImAlive();
 });
 
-cron.schedule("* * * * *", () => {
-  graphql(
-    schema,
-    `
-      {
-        team(id: 9) {
-          name
-        }
-      }
-    `
-  ).then(res => console.log(res.data));
-});
+setInterval(function() {
+  http.get("https://nhl-stats-server.herokuapp.com/graphql");
+}, 300000);
