@@ -61,6 +61,6 @@ cron.schedule("30 9 * * 0,3", () => {
 });
 
 setInterval(function() {
+  http.get("http://nhl-stats-server.herokuapp.com/graphql");
   console.log("Getting");
-  http.get("https://nhl-stats-server.herokuapp.com/graphql");
 }, 300000);
