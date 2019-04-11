@@ -71,5 +71,4 @@ setInterval(function() {
   console.log("Getting");
   console.log(moment(Date.now()).format("MMM Do YYYY"));
   console.log(moment(Date.now()).format("HH:mm:ss"));
-  console.log(Date.now().getTimezone());
 }, 10000);
