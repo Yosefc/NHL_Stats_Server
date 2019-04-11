@@ -64,3 +64,10 @@ setInterval(function() {
   http.get("http://nhl-stats-server.herokuapp.com/graphql");
   console.log("Getting");
 }, 300000);
+
+const moment = require("moment");
+
+setInterval(function() {
+  console.log("Getting");
+  console.log(moment(Date.now()).format("MMM Do YYYY"));
+}, 10000);
