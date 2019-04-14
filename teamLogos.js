@@ -1,35 +1,39 @@
-const a = {
-  24: "http://www.sportslogos.net/logos/list_by_team/1736/Anaheim_Ducks/",
-  53: "http://www.sportslogos.net/logos/list_by_team/5263/Arizona_Coyotes/",
-  6: "http://www.sportslogos.net/logos/list_by_team/3/Boston_Bruins/",
-  7: "http://www.sportslogos.net/logos/list_by_team/4/Buffalo_Sabres/",
-  20: "http://www.sportslogos.net/logos/list_by_team/5/Calgary_Flames/",
-  12: "http://www.sportslogos.net/logos/list_by_team/6/Carolina_Hurricanes/",
-  16: "http://www.sportslogos.net/logos/list_by_team/7/Chicago_Blackhawks/",
-  21: "http://www.sportslogos.net/logos/list_by_team/8/Colorado_Avalanche/",
-  29: "http://www.sportslogos.net/logos/list_by_team/9/Columbus_Blue_Jackets/",
-  25: "http://www.sportslogos.net/logos/list_by_team/10/Dallas_Stars/",
-  17: "http://www.sportslogos.net/logos/list_by_team/11/Detroit_Red_Wings/",
-  22: "http://www.sportslogos.net/logos/list_by_team/12/Edmonton_Oilers/",
-  13: "http://www.sportslogos.net/logos/list_by_team/13/Florida_Panthers/",
-  26: "http://www.sportslogos.net/logos/list_by_team/14/Los_Angeles_Kings/",
-  30: "http://www.sportslogos.net/logos/list_by_team/15/Minnesota_Wild/",
-  8: "http://www.sportslogos.net/logos/list_by_team/16/Montreal_Canadiens/",
-  18: "http://www.sportslogos.net/logos/list_by_team/17/Nashville_Predators/",
-  1: "http://www.sportslogos.net/logos/list_by_team/18/New_Jersey_Devils/",
-  2: "http://www.sportslogos.net/logos/list_by_team/19/New_York_Islanders/",
-  3: "http://www.sportslogos.net/logos/list_by_team/20/New_York_Rangers/",
-  9: "http://www.sportslogos.net/logos/list_by_team/21/Ottawa_Senators/",
-  4: "http://www.sportslogos.net/logos/list_by_team/22/Philadelphia_Flyers/",
-  5: "http://www.sportslogos.net/logos/list_by_team/24/Pittsburgh_Penguins/",
-  28: "http://www.sportslogos.net/logos/list_by_team/26/San_Jose_Sharks/",
-  19: "http://www.sportslogos.net/logos/list_by_team/25/St._Louis_Blues/",
-  14: "http://www.sportslogos.net/logos/list_by_team/27/Tampa_Bay_Lightning/",
-  10: "http://www.sportslogos.net/logos/list_by_team/28/Toronto_Maple_Leafs/",
-  23: "http://www.sportslogos.net/logos/list_by_team/29/Vancouver_Canucks/",
-  54: "http://www.sportslogos.net/logos/list_by_team/6114/Vegas_Golden_Knights/",
-  15: "http://www.sportslogos.net/logos/list_by_team/30/Washington_Capitals/",
-  52: "http://www.sportslogos.net/logos/list_by_team/3050/Winnipeg_Jets/}"
-};
+module.exports = {
+  getTeamLogo: teamID => {
+    const teamLogos = {
+      24: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Ducks_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      53: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Coyotes_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      6: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Bruins_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      7: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Sabres_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      20: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/calgary.png" height="42" width="42" style="object-fit: contain;">`,
+      12: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/carolina.png" height="42" width="42" style="object-fit: contain;">`,
+      16: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/chicago.png" height="42" width="42" style="object-fit: contain;">`,
+      21: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/colorado.png" height="42" width="42" style="object-fit: contain;">`,
+      29: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_BlueJackets_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      25: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Stars_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      17: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/detroit.png" height="42" width="42" style="object-fit: contain;">`,
+      22: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Oilers_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      13: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Panthers_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      26: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Kings_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      30: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Wild_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      8: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/montreal.png" height="42" width="42" style="object-fit: contain;">`,
+      18: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Predators_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      1: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/newjersey.png" height="42" width="42" style="object-fit: contain;">`,
+      2: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NY-Islanders-Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      3: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/newyorkr.png" height="42" width="42" style="object-fit: contain;">`,
+      9: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Senators_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      4: `<img src="http://www.stickpng.com/assets/images/5a4fbba3da2b4f099b95da1a.png" height="42" width="42" style="object-fit: contain;">`,
+      5: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Penguins_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      28: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Sharks_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      19: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/stlouis.png" height="42" width="42" style="object-fit: contain;">`,
+      14: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Lightning_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      10: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_MapleLeafs_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      23: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/Vancouver_Canucks.png" height="42" width="42" style="object-fit: contain;">`,
+      15: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Capitals_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      52: `<img src="http://www.capsinfo.com/images/NHL_Team_Logos/NHL_Jets_Primary.png" height="42" width="42" style="object-fit: contain;">`,
+      54: `<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ac/Vegas_Golden_Knights_logo.svg/220px-Vegas_Golden_Knights_logo.svg.png" height="42" width="42" style="object-fit: contain;">`
+    };
 
-export default a;
+    return teamLogos[teamID];
+  }
+};
