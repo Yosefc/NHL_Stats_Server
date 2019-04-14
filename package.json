@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "jest"
   },
   "author": "Yosef Connors",
   "license": "MIT",
@@ -19,5 +20,8 @@
     "node-cron": "^2.0.3",
     "nodemailer": "^6.0.0",
     "nodemon": "^1.18.10"
+  },
+  "devDependencies": {
+    "jest": "^24.7.1"
   }
 }
