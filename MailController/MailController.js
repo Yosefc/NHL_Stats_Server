@@ -1,6 +1,6 @@
 const mailGremlin = require("nodemailer");
 const moment = require("moment");
-const { getTeamLogo } = require("./teamLogos");
+const { getTeamLogo } = require("../teamLogos");
 const fs = require("fs");
 const TOKEN_PATH = "token.json";
 const CREDENTIALS = "credentials.json";
