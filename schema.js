@@ -144,15 +144,23 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(GamesType),
       description: "Gets all games played by team specified by the id arg.",
       args: {
-        id: { type: GraphQLInt }
+        id: { type: GraphQLInt },
+        startDate: {
+          type: GraphQLString,
+          description: "Define start date in format 2018-10-03 (YYYY-MM-DD)"
+        },
+        endDate: {
+          type: GraphQLString,
+          description: "Define start date in format 2018-10-03 (YYYY-MM-DD)"
+        }
       },
       resolve(parent, args) {
         const href = [];
         return axios
           .get(
-            `https://statsapi.web.nhl.com/api/v1/schedule?teamId=${
-              args.id
-            }&startDate=2018-10-03&endDate=2019-04-03`
+            `https://statsapi.web.nhl.com/api/v1/schedule?teamId=${args.id}&startDate=${
+              args.startDate
+            }&endDate=${args.endDate}`
           )
           .then(res =>
             res.data.dates.map(game => {
