@@ -88,7 +88,6 @@ const GamesType = new GraphQLObjectType({
           try {
             const hrefs = [];
             await axios.get(`https://statsapi.web.nhl.com${link}`).then(response => {
-              //TODO: Need to add a check if "tokenData" exist. Otherwise, I get an error(TypeError: Cannot read property 'tokenData' of undefined) ob line below.
               for (let el in response.data.editorial.recap.items[0].tokenData) {
                 if (response.data.editorial.recap.items[0].tokenData[el].hasOwnProperty("href")) {
                   hrefs.push({
@@ -98,11 +97,11 @@ const GamesType = new GraphQLObjectType({
                 }
               }
             });
-            // if (hrefs.length < 1) {
-            //   reject(console.log("Did get results.."));
-            // } else {
-            resolve(hrefs.find(h => h.type === "hyperLink").href);
-            // }
+            if (hrefs.length < 1) {
+              reject(console.log("Did get results.."));
+            } else {
+              resolve(hrefs.find(h => h.type === "hyperLink").href);
+            }
           } catch (error) {
             console.log({ error });
           }
