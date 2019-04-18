@@ -10,7 +10,7 @@ cron.schedule("30 * * * *", async () => {
     schema,
     `
       {
-        TodaysSchedule(id: 14) {
+        TodaysSchedule(id: 6) {
           gameType
           gameDate
           content
