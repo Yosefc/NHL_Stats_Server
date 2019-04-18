@@ -43,13 +43,6 @@ const LeagueRecordType = new GraphQLObjectType({
   })
 });
 
-const GameContentType = new GraphQLObjectType({
-  name: "GameContent",
-  fields: () => ({
-    link: { type: GraphQLString }
-  })
-});
-
 const GameRecap = new GraphQLObjectType({
   name: "GameRecap",
   description: "This query returns links to game recaps.",
