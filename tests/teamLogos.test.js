@@ -1,4 +1,4 @@
-const { getTeamLogo } = require("./teamLogos");
+const { getTeamLogo } = require("../teamLogos");
 
 describe("Team Logos", () => {
   test("Should return a strimg", () => {
