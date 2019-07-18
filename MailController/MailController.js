@@ -2,11 +2,11 @@ const mailGremlin = require("nodemailer");
 const moment = require("moment");
 const { getTeamLogo } = require("../teamLogos");
 const fs = require("fs");
-const TOKEN_PATH = "token.json";
+// const TOKEN_PATH = "token.json";
 const CREDENTIALS = "credentials.json";
 
-const rawTokenData = fs.readFileSync(TOKEN_PATH);
-const parsedTokenData = JSON.parse(rawTokenData);
+// const rawTokenData = fs.readFileSync(TOKEN_PATH);
+// const parsedTokenData = JSON.parse(rawTokenData);
 
 const rawCredentials = fs.readFileSync(CREDENTIALS);
 const parsedCredentials = JSON.parse(rawCredentials);
@@ -23,8 +23,8 @@ module.exports = {
         user: "nhlgamestats@gmail.com",
         clientId: parsedCredentials.installed.client_id,
         clientSecret: parsedCredentials.installed.client_secret,
-        refreshToken: parsedTokenData.refresh_token,
-        accessToken: parsedTokenData.access_token
+        refreshToken: process.env.NHL_STATS_REFRESH_TOKEN,
+        accessToken: process.env.NHL_STATS_ACCESS_TOKEN
       }
     });
     let mailOptions = {
