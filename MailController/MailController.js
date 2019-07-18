@@ -72,8 +72,8 @@ module.exports = {
         user: "nhlgamestats@gmail.com",
         clientId: parsedCredentials.installed.client_id,
         clientSecret: parsedCredentials.installed.client_secret,
-        refreshToken: parsedTokenData.refresh_token,
-        accessToken: parsedTokenData.access_token
+        refreshToken: process.env.NHL_STATS_REFRESH_TOKEN,
+        accessToken: process.env.NHL_STATS_ACCESS_TOKEN
       }
     });
     let mailOptions = {
@@ -88,7 +88,6 @@ module.exports = {
       if (error) {
         console.log({ error });
       } else {
-        sentDate = Date();
         console.log({ msg: "I'm alive email has been sent" });
       }
       transporter.close();
