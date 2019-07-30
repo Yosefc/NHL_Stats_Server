@@ -1,15 +1,6 @@
 const mailGremlin = require("nodemailer");
 const moment = require("moment");
 const { getTeamLogo } = require("../teamLogos");
-// const fs = require("fs");
-// const TOKEN_PATH = "token.json";
-// const CREDENTIALS = "credentials.json";
-
-// const rawTokenData = fs.readFileSync(TOKEN_PATH);
-// const parsedTokenData = JSON.parse(rawTokenData);
-
-// const rawCredentials = fs.readFileSync(CREDENTIALS);
-// const parsedCredentials = JSON.parse(rawCredentials);
 
 const auth = {
   type: "OAuth2",
