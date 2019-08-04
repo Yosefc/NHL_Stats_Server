@@ -1,15 +1,15 @@
 const mailGremlin = require("nodemailer");
 const moment = require("moment");
 const { getTeamLogo } = require("../teamLogos");
-const fs = require("fs");
-const TOKEN_PATH = "token.json";
-const CREDENTIALS = "credentials.json";
 
-const rawTokenData = fs.readFileSync(TOKEN_PATH);
-const parsedTokenData = JSON.parse(rawTokenData);
-
-const rawCredentials = fs.readFileSync(CREDENTIALS);
-const parsedCredentials = JSON.parse(rawCredentials);
+const auth = {
+  type: "OAuth2",
+  user: "nhlgamestats@gmail.com",
+  clientId: process.env.NHL_STATS_CLIENT_ID,
+  clientSecret: process.env.NHL_STATS_CLIENT_SECRET,
+  refreshToken: process.env.NHL_STATS_REFRESH_TOKEN,
+  accessToken: process.env.NHL_STATS_ACCESS_TOKEN
+};
 
 module.exports = {
   sendGameUpdate: function(emailData) {
@@ -18,14 +18,7 @@ module.exports = {
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
-      auth: {
-        type: "OAuth2",
-        user: "nhlgamestats@gmail.com",
-        clientId: parsedCredentials.installed.client_id,
-        clientSecret: parsedCredentials.installed.client_secret,
-        refreshToken: parsedTokenData.refresh_token,
-        accessToken: parsedTokenData.access_token
-      }
+      auth
     });
     let mailOptions = {
       from: "nhlgamestats@gmail.com",
@@ -67,14 +60,7 @@ module.exports = {
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
-      auth: {
-        type: "OAuth2",
-        user: "nhlgamestats@gmail.com",
-        clientId: parsedCredentials.installed.client_id,
-        clientSecret: parsedCredentials.installed.client_secret,
-        refreshToken: parsedTokenData.refresh_token,
-        accessToken: parsedTokenData.access_token
-      }
+      auth
     });
     let mailOptions = {
       from: "nhlgamestats@gmail.com",
@@ -88,8 +74,7 @@ module.exports = {
       if (error) {
         console.log({ error });
       } else {
-        sentDate = Date();
-        console.log({ msg: "I'm alive email has been sent" });
+        console.log({ msg: `I'm alive email has been sent with response: ${response}` });
       }
       transporter.close();
     });

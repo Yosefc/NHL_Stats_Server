@@ -3,7 +3,6 @@ const expressGraphQL = require("express-graphql");
 const PORT = process.env.PORT || 4000;
 const schema = require("./schema");
 require("./MailController");
-require("./OAuth");
 const app = express();
 
 app.use(
