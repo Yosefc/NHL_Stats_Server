@@ -60,7 +60,7 @@ cron.schedule("30 9 * * 0,3", () => {
   sendImAlive();
 });
 
-// setInterval(function() {
-//   http.get("http://nhl-stats-server.herokuapp.com/graphql");
-//   console.log("Getting");
-// }, 300000);
+setInterval(function() {
+  http.get("http://nhl-stats-server.herokuapp.com/graphql");
+  console.log("Getting");
+}, 300000);
